@@ -1,0 +1,6 @@
+../Core/Src/lora.c:19:12:_uart3_init_baud	2
+../Core/Src/lora.c:38:6:lora_uart_init	2
+../Core/Src/lora.c:53:5:lora_at_cmd	8
+../Core/Src/lora.c:99:17:_lora_detect_baudrate	4
+../Core/Src/lora.c:127:5:lora_join	4
+../Core/Src/lora.c:183:5:lora_send_data	2

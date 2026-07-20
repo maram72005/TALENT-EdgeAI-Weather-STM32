@@ -1,0 +1,414 @@
+{
+    "version": "4.0",
+    "environment": {
+        "generated_model": {
+            "model_files": [
+                {
+                    "name": "weather_model_int8_OE_3_3_1.onnx",
+                    "signature": "0xcd0be3b46f6ab814740a32cd766f1fb1"
+                }
+            ],
+            "name": "network",
+            "generated_time": "2026-05-20T11:16:21+0200"
+        },
+        "tools": [
+            {
+                "name": "ST.EdgeAI.Core",
+                "version": "4.0.0-20500 359356bb0",
+                "arguments": "generate --model C:\\Users\\Administrateur\\Desktop\\maram\\stage\\model revard\\test\\weather_model_int8.tflite --batch-size 10 --mode host --st-neural-art user_profile@C:\\Users\\Administrateur\\.stm32cubeaistudio\\workspace\\weather_npu\\.ai\\run\\generate-2\\profile-neural-art.json --name network --verbosity 1 --c-api st-ai --target stm32n6 --workspace C:\\Users\\Administrateur\\.stm32cubeaistudio\\workspace\\weather_npu\\.ai\\run\\generate-2\\st_ai_ws --output C:\\Users\\Administrateur\\.stm32cubeaistudio\\workspace\\weather_npu\\.ai\\run\\generate-2\\st_ai_output",
+                "environment": [
+                    "STATS_TYPE=STM32CUBEAI-STUDIO"
+                ],
+                "input_model": {
+                    "model_files": [
+                        {
+                            "name": "weather_model_int8.tflite",
+                            "signature": "0xe95d45ed6f0b945a7f0b9c85408cf333"
+                        }
+                    ],
+                    "name": "weather_model_int8",
+                    "type": "tflite",
+                    "size": 284,
+                    "n_params": 209
+                }
+            }
+        ],
+        "test_name": "",
+        "network_signature": "0x52049ecdc1cbbce9"
+    },
+    "model_info": {
+        "original_inputs": [
+            {
+                "name": "serving_default_dense_input0",
+                "data_format": {
+                    "type": "SIGNED",
+                    "size": 8,
+                    "scale": [
+                        4.117383003234863
+                    ],
+                    "zero": [
+                        -128
+                    ],
+                    "quantizer": "UNIFORM"
+                },
+                "shape": [
+                    1,
+                    3
+                ],
+                "shape_map": [
+                    "BATCH",
+                    "CH"
+                ],
+                "c_shape_map": [
+                    "BATCH",
+                    "CH"
+                ]
+            }
+        ],
+        "original_outputs": [
+            {
+                "name": "gemm_2",
+                "data_format": {
+                    "type": "SIGNED",
+                    "size": 8,
+                    "scale": [
+                        3.1520113945007324
+                    ],
+                    "zero": [
+                        127
+                    ],
+                    "quantizer": "UNIFORM"
+                },
+                "shape": [
+                    1,
+                    1
+                ],
+                "shape_map": [
+                    "BATCH",
+                    "CH"
+                ],
+                "c_shape_map": [
+                    "BATCH",
+                    "CH"
+                ]
+            }
+        ]
+    },
+    "tensors": {
+        "Input_0_out_0": {
+            "format": {
+                "params": [
+                    [
+                        4.117383003234863
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            },
+            "data_channel_position": "CHLAST",
+            "data_channel_batch": 1,
+            "user_allocated": false
+        },
+        "Dequantize_1_out_0": {
+            "format": {
+                "params": [
+                    [
+                        4.117383003234863
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_2_out_0": {
+            "format": {
+                "params": [
+                    [
+                        1.9753921031951904
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_2_weights": {
+            "format": {
+                "params": [
+                    [
+                        0.005177792627364397
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_2_bias": {
+            "format": {
+                "params": [
+                    [
+                        0.021318955346941948
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S32"
+            }
+        },
+        "Quantize_3_out_0": {
+            "format": {
+                "params": [
+                    [
+                        1.9753921031951904
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Dequantize_4_out_0": {
+            "format": {
+                "params": [
+                    [
+                        1.9753921031951904
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Relu_5_out_0": {
+            "format": {
+                "params": [
+                    [
+                        1.9753921031951904
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_6_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.625209331512451
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_6_weights": {
+            "format": {
+                "params": [
+                    [
+                        0.0054893456399440765
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_6_bias": {
+            "format": {
+                "params": [
+                    [
+                        0.010843610391020775
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S32"
+            }
+        },
+        "Quantize_7_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.625209331512451
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Dequantize_8_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.625209331512451
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Relu_9_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.625209331512451
+                    ],
+                    [
+                        -128
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_10_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.1520113945007324
+                    ],
+                    [
+                        127
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_10_weights": {
+            "format": {
+                "params": [
+                    [
+                        0.005795705132186413
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            }
+        },
+        "Gemm_10_bias": {
+            "format": {
+                "params": [
+                    [
+                        0.021010644733905792
+                    ],
+                    [
+                        0
+                    ]
+                ],
+                "class": "integer",
+                "type": "S32"
+            }
+        },
+        "Quantize_11_out_0": {
+            "format": {
+                "params": [
+                    [
+                        3.1520113945007324
+                    ],
+                    [
+                        127
+                    ]
+                ],
+                "class": "integer",
+                "type": "S8"
+            },
+            "data_channel_position": "CHFIRST",
+            "data_channel_batch": 1,
+            "user_allocated": false
+        }
+    },
+    "nodes": {
+        "Dequantize_1": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Gemm_2": {
+            "names": [
+                "FULLY_CONNECTED_0"
+            ]
+        },
+        "Quantize_3": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Dequantize_4": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Relu_5": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Gemm_6": {
+            "names": [
+                "FULLY_CONNECTED_1"
+            ]
+        },
+        "Quantize_7": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Dequantize_8": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Relu_9": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        },
+        "Gemm_10": {
+            "names": [
+                "FULLY_CONNECTED_2"
+            ]
+        },
+        "Quantize_11": {
+            "names": [
+                "__FE_GENERATED__"
+            ]
+        }
+    }
+}

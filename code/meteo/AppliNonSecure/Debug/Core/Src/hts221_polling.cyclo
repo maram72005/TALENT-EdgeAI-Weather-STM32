@@ -1,0 +1,3 @@
+../Core/Src/hts221_polling.c:17:5:hts221_init	3
+../Core/Src/hts221_polling.c:78:6:hts221_read_temp	5
+../Core/Src/hts221_polling.c:98:6:hts221_read_hum	6

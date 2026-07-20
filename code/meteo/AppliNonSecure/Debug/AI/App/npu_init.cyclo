@@ -1,0 +1,7 @@
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1407:22:LL_AHB4_GRP1_EnableClock	1
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:3495:22:LL_APB4_GRP2_EnableClock	1
+../AI/App/npu_init.c:27:6:NPU_Config	1
+../AI/App/npu_init.c:34:6:Set_RISAF_Default	1
+../AI/App/npu_init.c:40:6:RIF_Config	1
+../AI/App/npu_init.c:45:6:SystemInit_POST	1
+../AI/App/npu_init.c:67:6:aiPreInitialize	1

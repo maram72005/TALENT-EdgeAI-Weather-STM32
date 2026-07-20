@@ -1,0 +1,11 @@
+../../Drivers/CMSIS/Include/core_cm55.h:3918:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../AI/App/app_x-cube-ai.c:38:5:aiInit	16	static,ignoring_inline_asm
+../AI/App/app_x-cube-ai.c:75:5:aiDeinit	8	static
+../AI/App/app_x-cube-ai.c:85:18:aiRun	8	static
+../AI/App/app_x-cube-ai.c:94:5:acquire_and_process_data	48	static,ignoring_inline_asm
+../AI/App/app_x-cube-ai.c:131:16:model_inference_pct	64	static
+../AI/App/app_x-cube-ai.c:160:5:post_process	152	static
+../AI/App/app_x-cube-ai.c:202:6:main_loop	8	static
+../AI/App/app_x-cube-ai.c:209:6:STM32CubeAI_Studio_AI_Init	8	static
+../AI/App/app_x-cube-ai.c:210:6:STM32CubeAI_Studio_AI_Process	8	static
+../AI/App/app_x-cube-ai.c:211:6:STM32CubeAI_Studio_AI_Deinit	8	static

@@ -1,0 +1,5 @@
+temp
+hum
+press
+altitude
+luminosity

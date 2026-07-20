@@ -1,0 +1,8 @@
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:679:22:LL_MEM_EnableClock	1
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_bus.h:1755:22:LL_AHB5_GRP1_EnableClock	1
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_rcc.h:5019:26:LL_RCC_PLL1_IsReady	2
+../../Drivers/STM32N6xx_HAL_Driver/Inc/stm32n6xx_ll_rcc.h:6768:22:LL_RCC_IC6_Enable	1
+../Core/Src/secure_nsc.c:51:22:SECURE_RegisterCallback	4
+../Core/Src/secure_nsc.c:77:23:SECURE_NPU_Init	2
+../Core/Src/secure_nsc.c:122:23:SECURE_NPU_EpochCtrlEnable	1
+../Core/Src/secure_nsc.c:159:23:SECURE_NPU_EpochCtrlWait	7
