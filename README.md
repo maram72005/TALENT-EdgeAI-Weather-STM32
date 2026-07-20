@@ -118,4 +118,7 @@ Laboratoire **CROMA** (Centre de Radiofréquences, Optique et Micro-nanoélectro
 
 ## 📄 Licence
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21457136.svg)](https://doi.org/10.5281/zenodo.21457136)
+
+
 Ce projet est distribué sous licence MIT (voir `LICENSE`) — à adapter selon les règles de votre laboratoire/université avant publication publique.
