@@ -58,7 +58,7 @@ Everything runs **locally on the sensor node**: no Cloud and no 4G/5G connection
 The core of the system is **METEONET v2**, a small neural network trained on **87,696** real weather observations (10 years, filtered to mountain pressure levels). From only **3 inputs** (Temperature, Humidity, Pressure) it predicts the probability of rain, and it runs in **0.21 ms** with **384 bytes of RAM** after INT8 quantization.
 
 <p align="center">
-  <img src="fig/real_view.jpg" width="48%" alt="Mont Revard landscape">
+  <img src="fig/real(1).jpg" width="48%" alt="Mont Revard landscape">
   <img src="fig/PrototypePhotob.png" width="48%" alt="Prototype of the Edge-AI node">
 </p>
 <p align="center"><em>Left: test site (Mont Revard, 1500 m). Right: the Edge-AI sensor node prototype.</em></p>
