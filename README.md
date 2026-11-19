@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <td><img src="docs/figures/logo_usmb.png" height="70" alt="Université Savoie Mont Blanc"></td>
-    <td><img src="docs/figures/logo_uga.png" height="70" alt="Université Grenoble Alpes"></td>
-    <td><img src="docs/figures/logo_croma.png" height="70" alt="CROMA"></td>
-    <td><img src="docs/figures/logo_inp.png" height="70" alt="Grenoble INP"></td>
-    <td><img src="docs/figures/logo_unita.png" height="70" alt="UNITA"></td>
-    <td><img src="docs/figures/logo_ubi.jpg" height="60" alt="Universidade da Beira Interior"></td>
+    <td><img src="fig/logo_usmb.png" height="70" alt="Université Savoie Mont Blanc"></td>
+    <td><img src="fig/logo_uga.png" height="70" alt="Université Grenoble Alpes"></td>
+    <td><img src="fig/logo_croma.png" height="70" alt="CROMA"></td>
+    <td><img src="fig/logo_inp.png" height="70" alt="Grenoble INP"></td>
+    <td><img src="fig/logo_unita.png" height="70" alt="UNITA"></td>
+    <td><img src="fig/logo_ubi.jpg" height="60" alt="Universidade da Beira Interior"></td>
   </tr>
 </table>
 
@@ -20,7 +20,7 @@
 ![Model](https://img.shields.io/badge/model-Dense%203→64→32→1-orange)
 ![Quantization](https://img.shields.io/badge/quantization-INT8-green)
 ![LoRaWAN](https://img.shields.io/badge/radio-LoRaWAN-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-yellow)
+![License](https://img.shields.io/badge/license-GPL%20v3-blue)
 
 *L3 internship – Université Savoie Mont Blanc / CROMA (Grenoble INP – CNRS – UGA)*
 *Research project TALENT: Intelligent Management of Mobility and Parking in Mountain Low-Density Heritage Cities*
@@ -58,8 +58,8 @@ Everything runs **locally on the sensor node**: no Cloud and no 4G/5G connection
 The core of the system is **METEONET v2**, a small neural network trained on **87,696** real weather observations (10 years, filtered to mountain pressure levels). From only **3 inputs** (Temperature, Humidity, Pressure) it predicts the probability of rain, and it runs in **0.21 ms** with **384 bytes of RAM** after INT8 quantization.
 
 <p align="center">
-  <img src="docs/figures/real_view.jpg" width="48%" alt="Mont Revard landscape">
-  <img src="docs/figures/PrototypePhotob.png" width="48%" alt="Prototype of the Edge-AI node">
+  <img src="fig/real_view.jpg" width="48%" alt="Mont Revard landscape">
+  <img src="fig/PrototypePhotob.png" width="48%" alt="Prototype of the Edge-AI node">
 </p>
 <p align="center"><em>Left: test site (Mont Revard, 1500 m). Right: the Edge-AI sensor node prototype.</em></p>
 
@@ -103,7 +103,7 @@ flowchart LR
 The full end-to-end design (acquisition, storage, training, Edge-AI inference) is shown below.
 
 <p align="center">
-  <img src="docs/figures/structure.png" width="80%" alt="Global architecture of the METEONET v2 pipeline">
+  <img src="fig/structure.png" width="80%" alt="Global architecture of the METEONET v2 pipeline">
 </p>
 
 **Design principle:** *train on a PC, run on the microcontroller.*
@@ -135,7 +135,7 @@ flowchart TD
 - **Topographic filter:** keep only `850 hPa ≤ P ≤ 950 hPa` (mountain profiles, 500–1537 m).
 - **Label:** `rain = 1` if `weather_code ≥ 51`, otherwise `fair weather = 0`.
 - **Class balancing:** 1:1 by under-sampling the majority class.
-- **Normalization:** Z-score `x̂ = (x − µ) / σ`, with µ and σ computed on the training set and saved in `training/scaler.pkl`.
+- **Normalization:** Z-score `x̂ = (x − µ) / σ`, with µ and σ computed on the training set and saved in `model/scaler.pkl`.
 - **Inputs:** Temperature (°C), Relative humidity (%), Pressure (hPa). Altitude is **not** a network input; it is computed on the board with the barometric formula.
 
 > **Input order matters:** `[temp, hum, press]`. The same order must be used on the microcontroller.
@@ -143,7 +143,7 @@ flowchart TD
 ### 4.2 Network
 
 <p align="center">
-  <img src="docs/figures/architecture_reseau.png" width="70%" alt="METEONET v2 architecture 3-64-32-1">
+  <img src="fig/architecture_reseau.png" width="70%" alt="METEONET v2 architecture 3-64-32-1">
 </p>
 
 | Layer | Size | Activation |
@@ -176,13 +176,13 @@ Models were ranked on **accuracy**, **convergence stability** and **generalizati
 | n°226 | SGD · MSE · ReLU | Second best SGD |
 
 <p align="center">
-  <img src="docs/figures/model_0082_adam_mea_relu_b64_lr0p01_split70-30_ep30.png" width="48%" alt="Model 82">
-  <img src="docs/figures/model_0028_adam_bin_sigmoid_b64_lr0p01_split70-30_ep30.png" width="48%" alt="Model 28">
+  <img src="fig/model_0082_adam_mea_relu_b64_lr0p01_split70-30_ep30.png" width="48%" alt="Model 82">
+  <img src="fig/model_0028_adam_bin_sigmoid_b64_lr0p01_split70-30_ep30.png" width="48%" alt="Model 28">
 </p>
 <p align="center">
-  <img src="docs/figures/model_0100_adam_mea_sigmoid_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 100">
-  <img src="docs/figures/model_0190_sgd_bin_swish_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 190">
-  <img src="docs/figures/model_0226_sgd_mea_relu_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 226">
+  <img src="fig/model_0100_adam_mea_sigmoid_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 100">
+  <img src="fig/model_0190_sgd_bin_swish_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 190">
+  <img src="fig/model_0226_sgd_mea_relu_b64_lr0p01_split70-30_ep30.png" width="32%" alt="Model 226">
 </p>
 
 **What the 288 runs taught us:** Adam dominates (91 % of the top 50), MSE is slightly better than cross-entropy, ReLU and Sigmoid are the most reliable, batch 64 and lr = 0.01 are the safest, and a 70-30 split generalizes better than 60-40.
@@ -190,7 +190,7 @@ Models were ranked on **accuracy**, **convergence stability** and **generalizati
 The final model is **re-trained for 20 epochs** (instead of 30) to avoid the overfitting seen beyond that point.
 
 <p align="center">
-  <img src="docs/figures/courbe_best_model.png" width="75%" alt="Final model n°82 loss and accuracy curves">
+  <img src="fig/courbe_best_model.png" width="75%" alt="Final model n°82 loss and accuracy curves">
 </p>
 
 ### 4.4 Extension: luminosity as a second output
@@ -198,7 +198,7 @@ The final model is **re-trained for 20 epochs** (instead of 30) to avoid the ove
 The model was extended to a **multi-output** version that also predicts the luminosity (%) measured by the TSL230BR sensor. Luminosity gives information about visibility and cloud cover.
 
 <p align="center">
-  <img src="docs/figures/courbe_model82_lum.png" width="75%" alt="Multi-output model with luminosity">
+  <img src="fig/courbe_model82_lum.png" width="75%" alt="Multi-output model with luminosity">
 </p>
 
 Accuracy is 82.7 % (train) / 82.6 % (test). It is lower than for the binary model because luminosity also depends on solar time and cloud cover, which T, H and P do not fully describe.
@@ -206,8 +206,8 @@ Accuracy is 82.7 % (train) / 82.6 % (test). It is lower than for the binary mode
 ### 4.5 Sensor data analysis
 
 <p align="center">
-  <img src="docs/figures/analyse_complete_capteurs.png" width="45%" alt="Complete sensor analysis">
-  <img src="docs/figures/analyse_clean.png" width="45%" alt="Cleaned data analysis">
+  <img src="fig/analyse_complete_capteurs.png" width="45%" alt="Complete sensor analysis">
+  <img src="fig/analyse_clean.png" width="45%" alt="Cleaned data analysis">
 </p>
 
 ---
@@ -215,7 +215,7 @@ Accuracy is 82.7 % (train) / 82.6 % (test). It is lower than for the binary mode
 ## 5. Hardware
 
 <p align="center">
-  <img src="docs/figures/setup_complet_lora_lum.jpg" width="75%" alt="Complete hardware setup">
+  <img src="fig/setup_complet_lora_lum.jpg" width="75%" alt="Complete hardware setup">
 </p>
 
 | Component | Role | Interface |
@@ -241,7 +241,7 @@ The NPU uses the dedicated SRAM banks AXISRAM3–6 (4 × 64 KB) for weights and 
 ## 6. Firmware architecture
 
 <p align="center">
-  <img src="docs/figures/structure.png" width="60%" alt="Firmware structure">
+  <img src="fig/structure.png" width="60%" alt="Firmware structure">
 </p>
 
 ```
@@ -284,17 +284,17 @@ T:29.1,H:76.0,P:988.8,A:241,R:33,B:67,D:1,L:92
 | `D` | Day (1) / Night (0) | – |
 | `L` | Luminosity | % |
 
-**The Things Network:** copy `lorawan/ttn_payload_decoder.js` into *Application → Payload formatters → Uplink → Custom JavaScript*. It returns `temperature`, `humidity`, `pressure`, `altitude`, `pluie_pct`, `beau_pct`, `lux_pct`, `meteo` (PLUIE/BEAU), `jour_nuit` and `luminosite`.
+**The Things Network:** copy `code/meteo/ttn_payload_decoder.js` into *Application → Payload formatters → Uplink → Custom JavaScript*. It returns `temperature`, `humidity`, `pressure`, `altitude`, `pluie_pct`, `beau_pct`, `lux_pct`, `meteo` (PLUIE/BEAU), `jour_nuit` and `luminosite`.
 
 <p align="center">
-  <img src="docs/figures/interface_web_dashboard.png" width="85%" alt="Station Météo STM32N6 web dashboard">
+  <img src="fig/interface_web_dashboard.png" width="85%" alt="Station Météo STM32N6 web dashboard">
 </p>
 <p align="center"><em>Real-time web dashboard: live measurements, NPU prediction (rain/fair weather) and 2-hour history.</em></p>
 
 <p align="center">
-  <img src="docs/figures/LoRaWAN_logo_RGB.jpg" height="50" alt="LoRaWAN">
+  <img src="fig/LoRaWAN_logo_RGB.jpg" height="50" alt="LoRaWAN">
   &nbsp;&nbsp;
-  <img src="docs/figures/images.png" height="50" alt="The Things Network">
+  <img src="fig/images.png" height="50" alt="The Things Network">
 </p>
 
 ---
@@ -308,7 +308,7 @@ Tests were carried out at **Mont Revard (1500 m)** with the prototype.
 Between 10:45 and 11:00 the model detected a sharp rise of the rain probability, crossing the 50 % threshold, matching a dense cloud passing over the site. It then returned to its baseline at 11:00. This gives an anticipation window of about 15 minutes.
 
 <p align="center">
-  <img src="docs/figures/evolution_meteo_voitures.png" width="70%" alt="Scenario A time series">
+  <img src="fig/evolution_meteo_voitures.png" width="70%" alt="Scenario A time series">
 </p>
 
 ### Scenario B – saturated environment (13:10 – 13:45)
@@ -316,7 +316,7 @@ Between 10:45 and 11:00 the model detected a sharp rise of the rain probability,
 Dense fog kept the humidity at 100 %. Thanks to the polynomial smoothing applied before inference, the rain probability stayed stable (about 60 %) and **no false alarm** was triggered.
 
 <p align="center">
-  <img src="docs/figures/media_fog.jpg" width="45%" alt="Fog at Mont Revard">
+  <img src="fig/media_fog.jpg" width="45%" alt="Fog at Mont Revard">
 </p>
 
 ---
@@ -326,25 +326,12 @@ Dense fog kept the humidity at 100 %. Thanks to the polynomial smoothing applied
 ```
 TALENT-EdgeAI-Weather-STM32/
 ├── README.md
-├── LICENSE
-├── data/
-│   └── base_universelle_meteo.csv       # not included (source data)
-├── training/
-│   ├── train_meteonet.py                # training script (report Annex A)
-│   ├── scaler.pkl                       # saved Z-score parameters
-│   └── generate_architecture_figure.py  # draws the network figure
-├── firmware/                            # STM32 C code
-│   ├── main.c
-│   ├── periph_init.c/.h
-│   ├── sensors.c/.h
-│   ├── display.c/.h
-│   ├── hts221_polling.c  / hts221_reg.c
-│   └── pressure_polling.c / lps22hh_reg.c
-├── lorawan/
-│   └── ttn_payload_decoder.js           # TTN decoder (report Annex B)
-└── docs/
-    ├── rapport_stage_TALENT.pdf         # full internship report
-    └── figures/                         # all images used in this README
+├── LICENSE                  # GNU GPL v3
+├── code/
+│   └── meteo/               # STM32 firmware (C), training script, TTN decoder
+├── data base/               # weather data (CSV)
+├── model/                   # trained model, scaler.pkl, quantized model
+└── fig/                     # all images used in this README
 ```
 
 ---
@@ -364,12 +351,12 @@ TALENT-EdgeAI-Weather-STM32/
 git clone https://github.com/maram72005/TALENT-EdgeAI-Weather-STM32.git
 cd TALENT-EdgeAI-Weather-STM32
 pip install pandas numpy scikit-learn tensorflow matplotlib
-python training/train_meteonet.py
+python code/meteo/train_meteonet.py
 ```
 
 ### 10.3 Build and flash
 
-1. Open the project in **STM32CubeIDE** (`firmware/`).
+1. Open the project in **STM32CubeIDE** (`code/meteo/`).
 2. Put the board in **development boot mode** (BOOT switches as described in ST's NUCLEO-N657X0-Q user manual).
 3. Build the **FSBL** and the **Appli** projects.
 4. Sign the binaries and flash them with **STM32CubeProgrammer** (external flash loader of the board).
@@ -382,7 +369,7 @@ python training/train_meteonet.py
 
 1. Create a TTN application and register the LoRa-E5 (DevEUI, AppEUI/JoinEUI, AppKey).
 2. Put your keys in the firmware LoRa configuration (do **not** commit real keys to GitHub).
-3. Paste `lorawan/ttn_payload_decoder.js` in the payload formatter.
+3. Paste `code/meteo/ttn_payload_decoder.js` in the payload formatter.
 4. Watch the decoded uplinks in *Live data*.
 
 ---
@@ -408,7 +395,7 @@ The network has only about 2,400 parameters, so it also runs comfortably on a Co
 Add this at the end of `train_meteonet.py` if it is not already there:
 
 ```python
-model.save("training/meteonet.h5")          # Keras model
+model.save("model/meteonet.h5")          # Keras model
 ```
 
 ### Step 2 – Quantize to INT8
@@ -416,7 +403,7 @@ model.save("training/meteonet.h5")          # Keras model
 ```python
 import numpy as np, tensorflow as tf
 
-model = tf.keras.models.load_model("training/meteonet.h5")
+model = tf.keras.models.load_model("model/meteonet.h5")
 
 def representative_data():
     for x in X_train[:500]:                      # normalized training samples
@@ -429,7 +416,7 @@ conv.target_spec.supported_ops = [tf.lite.OpsSet.TFLITE_BUILTINS_INT8]
 conv.inference_input_type = tf.int8
 conv.inference_output_type = tf.int8
 
-open("training/meteonet_int8.tflite", "wb").write(conv.convert())
+open("model/meteonet_int8.tflite", "wb").write(conv.convert())
 ```
 
 ### Step 3 – Generate the C code for your target
@@ -438,10 +425,10 @@ With **ST Edge AI Core** (`stedgeai`), or with **X-CUBE-AI** inside STM32CubeMX:
 
 ```bash
 # STM32N6 (NPU)
-stedgeai generate -m training/meteonet_int8.tflite --target stm32n6 --st-neural-art
+stedgeai generate -m model/meteonet_int8.tflite --target stm32n6 --st-neural-art
 
 # Other STM32 (CPU), example with an L4
-stedgeai generate -m training/meteonet_int8.tflite --target stm32l4
+stedgeai generate -m model/meteonet_int8.tflite --target stm32l4
 ```
 
 > Option names can change between versions of ST Edge AI Core. Check `stedgeai --help` or ST's documentation for your version. In STM32CubeMX you can do the same from the **X-CUBE-AI** panel (*Add network → TFLite → Analyze → Generate*).
@@ -454,7 +441,7 @@ The microcontroller must apply **exactly** the same Z-score as in training:
 
 ```python
 import pickle
-sc = pickle.load(open("training/scaler.pkl", "rb"))
+sc = pickle.load(open("model/scaler.pkl", "rb"))
 print("MEAN:", ", ".join(f"{m:.6f}f" for m in sc.mean_))
 print("STD :", ", ".join(f"{s:.6f}f" for s in sc.scale_))
 ```
@@ -550,7 +537,7 @@ The training script expects at least these columns:
 1. Put your CSV in `data/` and set the file name in the script.
 2. Adjust the pressure filter to your altitude range.
 3. Check the hyperparameters block (`ADAM`, `mean_squared_error`, `relu`, `BATCH = 64`, `LR = 0.01`, `TEST_SZ = 0.30`, `N_EPOCHS = 20`).
-4. Run `python training/train_meteonet.py`.
+4. Run `python code/meteo/train_meteonet.py`.
 5. Save `scaler.pkl` and the model, then repeat Steps 2–8 of section 11.
 
 > **Note on features:** the script listing in the report's Annex A is the extended *v2.1* version that also uses `altitude` as a fourth input (`FEATURES = ['temp','hum','press','altitude']`). The deployed reference model n°82 uses **only 3 inputs** (`['temp','hum','press']`). Make sure the number of features in training, in the C code and in the model input are identical.
@@ -582,7 +569,7 @@ This work belongs to the **6G IoT–Edge–Cloud continuum**: intelligence is mo
 2. M. Mezlini, T. Lacrevaz, F. J. Velez, P. M. Ferreira, *"TALENT: Intelligent Management of Mobility and Parking in Mountain Low-Density Heritage Cities"*, Proc. of IEEE, 2026.
 3. J. P. Paiva, P. M. Ferreira, K. A. Flanigan, F. J. Velez, *"Smart Mobility and Parking Solutions: AIoT Innovations for Mountain Touristic Zones"*, submitted to IEEE Journal of Selected Areas in Sensors, Jan. 2026.
 
-The full bibliography is in [`docs/rapport_stage_TALENT.pdf`](docs/rapport_stage_TALENT.pdf).
+The full bibliography is in the internship report (see the report PDF of the project).
 
 Useful tools: [ST Edge AI Suite](https://www.st.com/en/development-tools/st-edge-ai-suite.html) · [STM32 AI Model Zoo](https://github.com/STMicroelectronics/stm32ai-modelzoo) · [The Things Network](https://www.thethingsnetwork.org/)
 
@@ -598,4 +585,4 @@ Useful tools: [ST Edge AI Suite](https://www.st.com/en/development-tools/st-edge
 
 **Citation / DOI:** `<!-- add your Zenodo DOI badge here -->`
 
-**License:** MIT (see `LICENSE`). Check the rules of your laboratory / university before making the repository public.
+**License:** GNU GPL v3 (see `LICENSE`). Check the rules of your laboratory / university before making the repository public.
