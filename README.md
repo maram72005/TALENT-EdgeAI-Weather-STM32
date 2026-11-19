@@ -583,6 +583,6 @@ Useful tools: [ST Edge AI Suite](https://www.st.com/en/development-tools/st-edge
 
 **Laboratory:** CROMA – Centre de Radiofréquences, Optique et Micro-nanoélectronique des Alpes (Grenoble INP – UGA / CNRS / USMB), team DHREAMS.
 
-**Citation / DOI:** `<!-- add your Zenodo DOI badge here -->`
+**Citation / DOI:** `10.5281/zenodo.21457136`
 
 **License:** GNU GPL v3 (see `LICENSE`). Check the rules of your laboratory / university before making the repository public.
